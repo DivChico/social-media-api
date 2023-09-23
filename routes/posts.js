@@ -88,6 +88,7 @@ router.get("/timeline/:userId", async (req, res) => {
     timeline.sort(function (a, b) {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
+
     res.status(200).json(timeline);
   } catch (err) {
     res.status(400).json(err);
@@ -99,6 +100,9 @@ router.get("/user/:userId", async (req, res) => {
     const user = await User.findById(req.params.userId);
     let userPosts = await Post.find({ userId: req.params.userId });
 
+    userPosts.sort(function (a, b) {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
     res.status(200).json(userPosts);
   } catch (err) {
     res.status(400).json(err);
