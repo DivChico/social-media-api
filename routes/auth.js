@@ -3,11 +3,6 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 //register
 router.post("/register", async (req, res) => {
-  // const newUser = await new User({
-  //   username: req.body.username,
-  //   email: req.body.email,
-  //   password: req.body.password,
-  // });
   try {
     const hasedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = await new User({
@@ -20,7 +15,6 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-  console.log("register");
 });
 //login
 router.post("/login", async (req, res) => {

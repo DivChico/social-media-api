@@ -29,7 +29,6 @@ router.get("/", async (req, res) => {
       {
         password: false,
         followers: false,
-        email: false,
         coverPicture: false,
         followings: false,
         isAdmin: false,
@@ -47,6 +46,63 @@ router.get("/", async (req, res) => {
     return res.status(400).json(err);
   }
 });
+// get emails
+router.get("/email", async (req, res) => {
+  try {
+    const user = await User.find(
+      {},
+      {
+        password: false,
+        followers: false,
+        coverPicture: false,
+        followings: false,
+        isAdmin: false,
+        createdAt: false,
+        updatedAt: false,
+        __v: false,
+        city: false,
+        from: false,
+        relation: false,
+        desc: false,
+        _id: false,
+        username: false,
+        profilePicture: false,
+      }
+    );
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+});
+// get emails
+router.get("/username", async (req, res) => {
+  try {
+    const user = await User.find(
+      {},
+      {
+        password: false,
+        followers: false,
+        coverPicture: false,
+        followings: false,
+        isAdmin: false,
+        createdAt: false,
+        updatedAt: false,
+        __v: false,
+        city: false,
+        from: false,
+        relation: false,
+        desc: false,
+        _id: false,
+        email: false,
+        profilePicture: false,
+      }
+    );
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+});
+
 // delete account
 router.delete("/:userId", async (req, res) => {
   if (req.body._id === req.params.userId) {

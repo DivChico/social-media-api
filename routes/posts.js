@@ -64,7 +64,6 @@ router.put("/:postId/like", async (req, res) => {
     res.status(400).json(err);
   }
 });
-module.exports = router;
 //get post
 router.get("/:postId", async (req, res) => {
   try {
@@ -108,3 +107,4 @@ router.get("/user/:userId", async (req, res) => {
     res.status(400).json(err);
   }
 });
+module.exports = router;

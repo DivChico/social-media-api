@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
+const commentsRoute = require("./routes/comments");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(morgan("common"));
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
+app.use("/api/comments", commentsRoute);
 
 app.listen(8800, () => {
   console.log("backend server started ");

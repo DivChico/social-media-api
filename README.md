@@ -46,6 +46,9 @@ backend for social media app
 | DELETE | api/users/:userId | delete user |
 | GET | /api/users/:userId | get user data |
 | GET | /api/users | get all users data |
+| GET | /api/users/email | get all users emails |
+| GET | /api/users/username | get all users usernames |
+
 | POST | /api/posts | create new post |
 | PUT | /api/posts/:postId | update post info |
 | Put | /api/posts/:postId/like | like post |
