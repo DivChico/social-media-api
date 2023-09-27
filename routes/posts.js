@@ -107,4 +107,18 @@ router.get("/user/:userId", async (req, res) => {
     res.status(400).json(err);
   }
 });
+// get all posts
+router.get("/all", async (req, res) => {
+  try {
+    let userPosts = await Post.find();
+
+    userPosts.sort(function (a, b) {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    res.status(200).json(userPosts);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
